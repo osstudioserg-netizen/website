@@ -60,6 +60,7 @@ function VideoOnClick({
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [volume, setVolume] = useState(15);
+   const [hasStarted, setHasStarted] = useState(false);
 
   const stopVideo = () => {
     const video = videoRef.current;
@@ -77,6 +78,7 @@ function VideoOnClick({
       video.muted = true;
       void video.play();
     }
+    setHasStarted(true);
     setIsPlaying(true);
   };
 
@@ -143,7 +145,8 @@ function VideoOnClick({
     }
   };
 
-  const showPoster = poster && !isPlaying;
+  // Постер показываем только до первого старта; дальше остаётся текущий кадр видео
+  const showPoster = poster && !hasStarted;
   const showVolumeControls = isPlaying;
 
   return (
@@ -189,6 +192,24 @@ function VideoOnClick({
                 : "w-full h-full object-cover"
             }
           />
+        </div>
+      )}
+      {/* Кнопка Play по центру, когда видео на паузе — подсказывает, что можно нажать */}
+      {!isPlaying && (
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          aria-hidden
+        >
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-black/60 border-2 border-white/80 flex items-center justify-center shadow-lg backdrop-blur-sm">
+            <svg
+              className="w-7 h-7 md:w-9 md:h-9 text-white ml-1"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden
+            >
+              <path d="M8 5v14l11-7L8 5z" />
+            </svg>
+          </div>
         </div>
       )}
       {showVolumeControls && (
