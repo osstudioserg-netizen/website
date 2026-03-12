@@ -14,10 +14,10 @@ export default function Navbar() {
       {/* ================= DESKTOP NAV (НЕ ТРОГАЕМ) ================= */}
       <nav className="fixed -top-5 left-0 w-full z-[999] hidden md:flex items-center justify-between px-16 py-8 text-white text-base tracking-[0.18em] bg-black/95 backdrop-blur-sm">
         <div className="flex items-center" style={{ gap: 'clamp(2rem, 6vw, 15rem)' }}>
-          <Link href="/#weare" className="uppercase hover:text-[#D7F000] transition">
+          <Link href="#weare" className="uppercase hover:text-[#D7F000] transition">
             We Are
           </Link>
-          <Link href="/#services" className="uppercase hover:text-[#D7F000] transition">
+          <Link href="#services" className="uppercase hover:text-[#D7F000] transition">
             Services
           </Link>
           
@@ -60,10 +60,10 @@ export default function Navbar() {
             <span>AI PRODUCTION</span>
           </Link>
           
-          <Link href="/#projects" className="uppercase hover:text-[#D7F000] transition">
+          <Link href="#projects" className="uppercase hover:text-[#D7F000] transition">
             Projects
           </Link>
-          <Link href="/#contacts" className="uppercase hover:text-[#D7F000] transition">
+          <Link href="#contacts" className="uppercase hover:text-[#D7F000] transition">
             Contacts
           </Link>
         </div>
@@ -104,12 +104,12 @@ export default function Navbar() {
             />
           </Link>
 
-          <Link href="/#weare" onClick={() => setOpen(false)}>We Are</Link>
-          <Link href="/#services" onClick={() => setOpen(false)}>Services</Link>
+          <Link href="#weare" onClick={() => setOpen(false)}>We Are</Link>
+          <Link href="#services" onClick={() => setOpen(false)}>Services</Link>
           <Link href="/vp" onClick={() => setOpen(false)}>VP Pavilion</Link>
           <Link href="/ai" onClick={() => setOpen(false)}>AI Production</Link>
-          <Link href="/#projects" onClick={() => setOpen(false)}>Projects</Link>
-          <Link href="/#contacts" onClick={() => setOpen(false)}>Contacts</Link>
+          <Link href="#projects" onClick={() => setOpen(false)}>Projects</Link>
+          <Link href="#contacts" onClick={() => setOpen(false)}>Contacts</Link>
         </div>
       )}
     </>
