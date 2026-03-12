@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- CUSTOM COMPONENTS LAYER ---------- */
+
+@layer components {
+  .font-anybody {
+    font-family: var(--font-anybody), sans-serif;
+  }
+
+  .nav-blur {
+    @apply bg-black/80 backdrop-blur-sm border-b border-white/10;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-black/40;
+  }
+
+  .hero-title {
+    @apply font-anybody font-extrabold uppercase text-white leading-[0.85] text-center;
+  }
+
+  .hero-cta {
+    @apply absolute bottom-8 right-8 bg-[#D7F000] px-5 py-2 rounded-full text-black font-semibold text-xs sm:text-sm tracking-[0.08em] z-20;
+  }
+}
+
+/* ---------- ROOT + BODY ---------- */
+
+:root {
+  --nav-height: 72px;
+}
+
+body {
+  background: #000;
+  color: #fff;
+}
+
+
+/* === HERO TITLE ANIMATION === */
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: hero-title-in 0.9s ease-out 0.7s forwards;
+}
+
+@keyframes hero-title-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === HERO CTA BUTTON ANIMATION === */
+
+.hero-cta {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: hero-cta-in 0.8s ease-out 1s forwards;
+}
+
+@keyframes hero-cta-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.font-anybody {
+  font-family: var(--font-anybody), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;   /* вместо mandatory */
+}
+
+#page-root section[data-scroll] {
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;       /* вместо always */
+}
+
+
+@keyframes stepSlideUp {
+  0% {
+    transform: translateY(100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  @keyframes stepSlideUp {
+    from {
+      transform: translateY(100vh);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+}
+
+
+/* Прячем крупный заголовок Hero, когда ServicesSection видна */
+.services-in-view .hero .hero-title,
+.services-in-view .hero .hero-big-title {
+  display: none !important;
+  opacity: 0 !important;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height, 72px);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+/* Hide scrollbar */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0 }
+  to { opacity: 1 }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.25s ease forwards;
+}
