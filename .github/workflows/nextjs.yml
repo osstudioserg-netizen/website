@@ -75,9 +75,9 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       # App ID для Elfsight Instagram: задать в Settings → Secrets and variables → Actions
       # как Repository secret или Variable с именем NEXT_PUBLIC_INSTAGRAM_WIDGET_APP_ID
+      # Билд без basePath — для кастомного домена (bymovie.studio).
       - name: Build with Next.js
         env:
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
           NEXT_PUBLIC_INSTAGRAM_WIDGET_APP_ID: ${{ vars.NEXT_PUBLIC_INSTAGRAM_WIDGET_APP_ID || secrets.NEXT_PUBLIC_INSTAGRAM_WIDGET_APP_ID }}
         run: |
           if [ -z "$NEXT_PUBLIC_INSTAGRAM_WIDGET_APP_ID" ]; then

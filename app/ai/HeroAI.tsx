@@ -3,8 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 
-const aiBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const aiVideoSrc = `${aiBasePath}/videos/AIShow.webm`;
+const aiVideoSrc = "/videos/AIShow.webm";
 
 export default function HeroAI() {
   const topMask = useRef<HTMLDivElement | null>(null);

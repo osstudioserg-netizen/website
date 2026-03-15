@@ -1,17 +1,11 @@
 import type { NextConfig } from "next";
 
-// На GitHub Pages сайт отдаётся из подпапки репозитория (например /website/).
-// basePath и assetPrefix задаются в workflow через NEXT_PUBLIC_BASE_PATH.
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const assetPrefix = basePath ? `${basePath}/` : undefined;
-
+/** Конфиг для кастомного домена (bymovie.studio): без basePath, иначе 404 на /repository/... */
 const nextConfig: NextConfig = {
-  basePath,
-  ...(assetPrefix && { assetPrefix }),
+  output: "export",
   reactCompiler: true,
-
   images: {
-    unoptimized: true, // для статического экспорта на GitHub Pages
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

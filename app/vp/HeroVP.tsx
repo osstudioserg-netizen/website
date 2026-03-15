@@ -3,8 +3,7 @@
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const vpVideoSrc = `${basePath}/videos/VP.webm`;
+const vpVideoSrc = "/videos/VP.webm";
 
 export default function HeroVP() {
   const topMask = useRef<HTMLDivElement | null>(null);

@@ -2,9 +2,6 @@
 
 import { useRef, useState, useEffect } from 'react';
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-const withBase = (path: string) => `${basePath}${path}`;
-
 const capabilities = [
   {
     title: "AI-Driven Commercial Production",
@@ -12,7 +9,7 @@ const capabilities = [
       "We produce next-generation commercial content powered by AI-enhanced production pipelines.",
     powerSentence:
       "From concept development to final delivery, our team combines cinematic direction, real-time environments, and generative technologies to create visually striking campaigns for brands and agencies. Faster production cycles. Unlimited creative possibilities.",
-    videoSrc: withBase("/videos/RISE_TOWER_ENG.webm"),
+    videoSrc: "/videos/RISE_TOWER_ENG.webm",
   },
   {
     title: "360° HDRI Environments for Virtual Production",
@@ -20,8 +17,8 @@ const capabilities = [
       "We create ultra-high-resolution 360° HDRI environments designed specifically for virtual production pipelines.",
     powerSentence:
       "Using advanced Gaussian Splatting technology, we capture and reconstruct real locations as photorealistic lighting environments, allowing filmmakers to place actors and objects into fully immersive digital worlds with physically accurate lighting and reflections. Real locations. Rebuilt for real-time cinema.",
-    videoSrc: withBase("/videos/matiasnorway.webm"),
-    posterSrc: withBase("/images/001.jpg"),
+    videoSrc: "/videos/matiasnorway.webm",
+    posterSrc: "/images/001.jpg",
   },
   {
     title: "AI-Enhanced Music Video Production",
@@ -29,8 +26,8 @@ const capabilities = [
       "We produce visually bold music videos using AI-assisted creative workflows and real-time production tools.",
     powerSentence:
       "From surreal digital worlds to stylized visual narratives, our team blends cinematic direction, generative imagery, and virtual environments to create music videos that stand out on modern streaming platforms. Where music meets next-generation visuals.",
-    videoSrc: withBase("/videos/P_in_P.webm"),
-    posterSrc: withBase("/images/002.jpg"),
+    videoSrc: "/videos/P_in_P.webm",
+    posterSrc: "/images/002.jpg",
     posterFit: "contain",
     videoFit: "cover",
   },
@@ -40,7 +37,7 @@ const capabilities = [
       "We develop and produce feature-length animated films using our proprietary AI-assisted production pipeline.",
     powerSentence:
       "Our studio integrates local AI systems, 3D animation, facial capture, and full-body motion capture to accelerate production while maintaining cinematic quality and expressive character performance. This hybrid approach allows us to create large-scale animated stories faster and more efficiently than traditional pipelines. Technology meets storytelling.",
-    videoSrc: withBase("/videos/AI.webm"),
+    videoSrc: "/videos/AI.webm",
   },
 ];
 
